@@ -1,0 +1,66 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="설정 그룹1"
+        android:layout="@layout/layout_group"
+        android:selectable="false">
+        <PreferenceScreen android:key="simple_menu"
+            android:title="설정 메뉴1"
+            android:summary="서브항목1, 서브항목2, 서브항목3">
+            <SwitchPreference
+                android:title="서브항목1"
+                android:summary="서브항목1의 부가설명 입니다."/>
+            <SwitchPreference
+                android:title="서브항목2"
+                android:summary="서브항목2의 부가설명 입니다."/>
+            <SwitchPreference
+                android:title="서브항목3"
+                android:summary="서브항목3의 부가설명 입니다."/>
+        </PreferenceScreen>
+        <PreferenceScreen android:title="설정 메뉴2"/>
+        <SwitchPreference android:title="스위치 설정 메뉴1"
+            android:summary="summary를 가지는 스위치 설정메뉴 입니다."/>
+        <PreferenceScreen android:title="설정 메뉴3"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="설정 그룹2"
+        android:layout="@layout/layout_group"
+        android:selectable="false">
+        <SwitchPreference android:title="스위치 설정 메뉴2"/>
+        <PreferenceScreen android:title="설정 메뉴4"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="설정 그룹3"
+        android:layout="@layout/layout_group"
+        android:selectable="false">
+        <PreferenceScreen android:key="switch_enable_menu"
+            android:title="설정 메뉴5">
+            <SwitchPreference android:key="enable_switch"
+                android:defaultValue="false"
+                android:title="메뉴5-1"
+                android:summary="메뉴5-2를 활성화 시킵니다." />
+            <SwitchPreference android:key="be_enabled_switch"
+                android:dependency="enable_switch"
+                android:defaultValue="false"
+                android:title="메뉴5-2"
+                android:summary="메뉴5-1이 활성화 되어야 메뉴5-2를 사용할 수 있습니다."/>
+        </PreferenceScreen>
+        <PreferenceScreen android:title="설정 메뉴6"
+            android:summary="서브항목1, 서브항목2, 서브항목3">
+            <SwitchPreference
+                android:title="서브항목1"
+                android:summary="서브항목1의 부가설명 입니다."/>
+            <SwitchPreference
+                android:title="서브항목2"
+                android:summary="서브항목2의 부가설명 입니다."/>
+            <SwitchPreference
+                android:title="서브항목3"
+                android:summary="서브항목3의 부가설명 입니다."/>
+        </PreferenceScreen>
+        <PreferenceScreen android:title="설정 메뉴7"/>
+        <PreferenceScreen android:title="설정 메뉴8"/>
+        <PreferenceScreen android:title="설정 메뉴9"
+            android:summary="설정 메뉴9의 부가설명 입니다."/>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
