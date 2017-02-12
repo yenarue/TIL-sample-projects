@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,7 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import butterknife.Unbinder;
 import rx.Observable;
@@ -128,9 +130,26 @@ public class FirstExampleFragment extends Fragment {
 
             List<ResolveInfo> infos =
                     getActivity().getPackageManager().queryIntentActivities(mainIntent, 0);
+
+            // use stream
+//            infos.stream().forEach(info -> apps.add(new AppInfoRich(getActivity(), info)));
+
             for (ResolveInfo info : infos) {
                 apps.add(new AppInfoRich(getActivity(), info));
             }
+
+            // use stream
+//            apps.stream().forEach(appInfo -> {
+//                Bitmap icon = Utils.drawableToBitmap(appInfo.getIcon());
+//                String name = appInfo.getName();
+//                String iconPath = mFilesDir + "/" + name;
+//                Utils.storeBitmap(App.instance, icon, name);
+//
+//                if (subscriber.isUnsubscribed()) {
+//                    return;
+//                }
+//                subscriber.onNext(new AppInfo(name, iconPath, appInfo.getLastUpdateTime()));
+//            });
 
             for (AppInfoRich appInfo : apps) {
                 Bitmap icon = Utils.drawableToBitmap(appInfo.getIcon());
