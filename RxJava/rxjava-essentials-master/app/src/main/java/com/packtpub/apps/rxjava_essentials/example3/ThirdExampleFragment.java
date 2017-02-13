@@ -22,98 +22,101 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.Observer;
+import rx.Subscriber;
 import rx.Subscription;
 
 public class ThirdExampleFragment extends Fragment {
 
-  @BindView(R.id.fragment_first_example_list) RecyclerView mRecyclerView;
+    @BindView(R.id.fragment_first_example_list) RecyclerView mRecyclerView;
 
-  @BindView(R.id.fragment_first_example_swipe_container) SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.fragment_first_example_swipe_container) SwipeRefreshLayout mSwipeRefreshLayout;
 
-  private ApplicationAdapter mAdapter;
+    private ApplicationAdapter mAdapter;
 
-  private ArrayList<AppInfo> mAddedApps = new ArrayList<>();
+    private ArrayList<AppInfo> mAddedApps = new ArrayList<>();
 
-  private Subscription mTimeSubscription;
+    private Subscription mTimeSubscription;
 
-  public ThirdExampleFragment() {
-  }
-
-  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_example, container, false);
-  }
-
-  @Override public void onViewCreated(View view, Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
-    ButterKnife.bind(this, view);
-
-    mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
-    mAdapter = new ApplicationAdapter(new ArrayList<>(), R.layout.applications_list_item);
-    mRecyclerView.setAdapter(mAdapter);
-
-    mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.myPrimaryColor));
-    mSwipeRefreshLayout.setProgressViewOffset(false, 0,
-        (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24,
-            getResources().getDisplayMetrics()));
-
-    // Progress
-    mSwipeRefreshLayout.setEnabled(false);
-    mSwipeRefreshLayout.setRefreshing(true);
-    mRecyclerView.setVisibility(View.GONE);
-
-    List<AppInfo> apps = ApplicationsList.getInstance().getList();
-
-    AppInfo appOne = apps.get(0);
-
-    AppInfo appTwo = apps.get(1);
-
-    AppInfo appThree = apps.get(2);
-
-    loadApps(appOne, appTwo, appThree);
-  }
-
-  private void loadApps(AppInfo appOne, AppInfo appTwo, AppInfo appThree) {
-    mRecyclerView.setVisibility(View.VISIBLE);
-
-    Observable<AppInfo> threeOfThem = Observable.just(appOne, appTwo, appThree);
-
-    threeOfThem.subscribe(new Observer<AppInfo>() {
-      @Override public void onCompleted() {
-        mSwipeRefreshLayout.setRefreshing(false);
-        Toast.makeText(getActivity(), "Here is the list!", Toast.LENGTH_LONG).show();
-      }
-
-      @Override public void onError(Throwable e) {
-        Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_SHORT).show();
-        mSwipeRefreshLayout.setRefreshing(false);
-      }
-
-      @Override public void onNext(AppInfo appInfo) {
-        mAddedApps.add(appInfo);
-        mAdapter.addApplication(mAddedApps.size() - 1, appInfo);
-      }
-    });
-
-    mTimeSubscription = Observable.timer(3, 3, TimeUnit.SECONDS).subscribe(new Observer<Long>() {
-      @Override public void onCompleted() {
-
-      }
-
-      @Override public void onError(Throwable e) {
-      }
-
-      @Override public void onNext(Long number) {
-        Log.d("RXJAVA", "I say " + number);
-      }
-    });
-  }
-
-  @Override public void onDestroyView() {
-    super.onDestroyView();
-    if (!mTimeSubscription.isUnsubscribed()) {
-      mTimeSubscription.unsubscribe();
+    public ThirdExampleFragment() {
     }
-  }
+
+    @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                       Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_example, container, false);
+    }
+
+    @Override public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        mAdapter = new ApplicationAdapter(new ArrayList<>(), R.layout.applications_list_item);
+        mRecyclerView.setAdapter(mAdapter);
+
+        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.myPrimaryColor));
+        mSwipeRefreshLayout.setProgressViewOffset(false, 0,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24,
+                        getResources().getDisplayMetrics()));
+
+        // Progress
+        mSwipeRefreshLayout.setEnabled(false);
+        mSwipeRefreshLayout.setRefreshing(true);
+        mRecyclerView.setVisibility(View.GONE);
+
+        List<AppInfo> apps = ApplicationsList.getInstance().getList();
+
+        AppInfo appOne = apps.get(0);
+
+        AppInfo appTwo = apps.get(1);
+
+        AppInfo appThree = apps.get(2);
+
+        loadApps(appOne, appTwo, appThree);
+    }
+
+    private void loadApps(AppInfo appOne, AppInfo appTwo, AppInfo appThree) {
+        mRecyclerView.setVisibility(View.VISIBLE);
+
+        Observable.just(appOne, appTwo, appThree)
+//                .repeat(3) // 세번 반복해서 발행
+                .subscribe(new Observer<AppInfo>() {
+                    @Override public void onCompleted() {
+                        mSwipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(getActivity(), "Here is the list!", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override public void onError(Throwable e) {
+                        Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_SHORT).show();
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+
+                    @Override public void onNext(AppInfo appInfo) {
+                        mAddedApps.add(appInfo);
+                        mAdapter.addApplication(mAddedApps.size() - 1, appInfo);
+                    }
+                });
+        
+        // 일정 시간 후에 발행하는 옵저버블! // use interval(long, long, TimeUnit, Scheduler) instead
+        mTimeSubscription = Observable.timer(3, 3, TimeUnit.SECONDS)
+                .subscribe(number -> Log.d("RXJAVA", "I say " + number));
+
+        // 1.x 버전대에 추가된 것으로 보임
+//        Observable.fromEmitter
+
+//        // range(X, N) : X ~ X + N - 1
+//        Observable.range(10, 3)
+//                .subscribe(integer -> Toast.makeText(getActivity(), "I say " + integer, Toast.LENGTH_LONG).show());
+
+//        // polling 루틴
+//        Observable.interval(3, TimeUnit.SECONDS)
+//                .subscribe(longNumber -> Toast.makeText(getActivity(), "I say " + longNumber, Toast.LENGTH_LONG).show());
+    }
+
+    @Override public void onDestroyView() {
+        super.onDestroyView();
+        if (!mTimeSubscription.isUnsubscribed()) {
+            mTimeSubscription.unsubscribe();
+        }
+    }
 }
