@@ -33,6 +33,7 @@ android {
 
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/rxjava.properties'
     }
 }
 
@@ -61,13 +62,17 @@ dependencies {
     // RxAndroid, RxJava
     // RxJava 1.x (JavaDoc : http://reactivex.io/RxJava/1.x/javadoc/rx/Observable.html)
     compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.2.6'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'io.reactivex:rxjava-joins:0.22.0'
     // RxJava 2.x (JavaDoc : http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Flowable.html)
     // https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0
 //    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
 //    // Because RxAndroid releases are few and far between, it is recommended you also
 //    // explicitly depend on RxJava's latest version for bug fixes and new features.
 //    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+
+    // RxBinding (https://github.com/JakeWharton/RxBinding)
+    compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 
     // Guava, Gson
     compile 'com.google.guava:guava:18.0'
