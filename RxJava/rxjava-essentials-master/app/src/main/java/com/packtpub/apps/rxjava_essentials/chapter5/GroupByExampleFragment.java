@@ -87,20 +87,20 @@ public class GroupByExampleFragment extends Fragment {
 
         }, () -> mSwipeRefreshLayout.setRefreshing(false));
 
-        Observable.concat(groupedItems).subscribe(new Observer<AppInfo>() {
-            @Override public void onCompleted() {
-                mSwipeRefreshLayout.setRefreshing(false);
-            }
-
-            @Override public void onError(Throwable e) {
-                Toast.makeText(getActivity(), "Something went south!", Toast.LENGTH_SHORT).show();
-                mSwipeRefreshLayout.setRefreshing(false);
-            }
-
-            @Override public void onNext(AppInfo appInfo) {
-                mAddedApps.add(appInfo);
-                mAdapter.addApplication(mAddedApps.size() - 1, appInfo);
-            }
-        });
+//        Observable.concat(groupedItems).subscribe(new Observer<AppInfo>() {
+//            @Override public void onCompleted() {
+//                mSwipeRefreshLayout.setRefreshing(false);
+//            }
+//
+//            @Override public void onError(Throwable e) {
+//                Toast.makeText(getActivity(), "Something went south!", Toast.LENGTH_SHORT).show();
+//                mSwipeRefreshLayout.setRefreshing(false);
+//            }
+//
+//            @Override public void onNext(AppInfo appInfo) {
+//                mAddedApps.add(appInfo);
+//                mAdapter.addApplication(mAddedApps.size() - 1, appInfo);
+//            }
+//        });
     }
 }
