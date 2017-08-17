@@ -2,9 +2,11 @@ package com.packtpub.apps.rxjava_essentials.chapter8.api.stackexchange;
 
 import com.packtpub.apps.rxjava_essentials.chapter8.api.stackexchange.models.User;
 import com.packtpub.apps.rxjava_essentials.chapter8.api.stackexchange.models.UsersResponse;
+import com.packtpub.apps.rxjava_essentials.network.RetrofitCreator;
+
 import java.util.List;
 import lombok.experimental.Accessors;
-import retrofit.RestAdapter;
+import retrofit2.Retrofit;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -14,11 +16,8 @@ import rx.schedulers.Schedulers;
   private final StackExchangeService mStackExchangeService;
 
   public SeApiManager() {
-    RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("https://api.stackexchange.com")
-        .setLogLevel(RestAdapter.LogLevel.BASIC)
-        .build();
-
-    mStackExchangeService = restAdapter.create(StackExchangeService.class);
+    Retrofit retrofit = RetrofitCreator.create("https://api.stackexchange.com");
+    mStackExchangeService = retrofit.create(StackExchangeService.class);
   }
 
   public Observable<List<User>> getTenMostPopularSOusers() {

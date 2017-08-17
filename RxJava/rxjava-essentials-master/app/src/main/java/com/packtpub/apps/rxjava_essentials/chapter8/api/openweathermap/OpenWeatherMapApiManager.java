@@ -1,8 +1,10 @@
 package com.packtpub.apps.rxjava_essentials.chapter8.api.openweathermap;
 
 import com.packtpub.apps.rxjava_essentials.chapter8.api.openweathermap.models.WeatherResponse;
+import com.packtpub.apps.rxjava_essentials.network.RetrofitCreator;
+
 import lombok.Getter;
-import retrofit.RestAdapter;
+import retrofit2.Retrofit;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -14,11 +16,8 @@ public class OpenWeatherMapApiManager {
   private final OpenWeatherMapService mOpenWeatherMapService;
 
   private OpenWeatherMapApiManager() {
-    RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("http://api.openweathermap.org")
-        .setLogLevel(RestAdapter.LogLevel.BASIC)
-        .build();
-
-    mOpenWeatherMapService = restAdapter.create(OpenWeatherMapService.class);
+    Retrofit retrofit = RetrofitCreator.create("http://api.openweathermap.org");
+    mOpenWeatherMapService = retrofit.create(OpenWeatherMapService.class);
   }
 
   public Observable<WeatherResponse> getForecastByCity(String city) {
