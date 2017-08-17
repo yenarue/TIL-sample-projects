@@ -22,6 +22,9 @@ import com.packtpub.apps.rxjava_essentials.chapter8.api.openweathermap.models.We
 import com.packtpub.apps.rxjava_essentials.chapter8.api.stackexchange.models.User;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.HttpException;
+import retrofit2.Response;
 import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -149,6 +152,11 @@ public class SoAdapter extends RecyclerView.Adapter<SoAdapter.ViewHolder> {
                             }
 
                             @Override public void onError(Throwable e) {
+                                if (e instanceof HttpException) {
+                                    HttpException exception = (HttpException) e;
+                                    Response response = exception.response();
+                                    App.L.error("statusCode:" + response.code() + ", message : " + response.message() + "\n");
+                                }
                                 App.L.error(e.toString());
                             }
 
