@@ -34,4 +34,10 @@ console.log(isNegZero(negZero));  // true
 console.log(isNegZero(posZero));  // false
 
 // -0를 만든 의도는 참 좋은데, 왜 -0를 구분할 수 있는 유틸성 함수를 왜 제공하지 않는걸까...
-// Number의 함수로 제공해줬음 좋겠다. 
+// Number의 함수로 제공해줬음 좋겠다.
+// 고 생각했었는데 Object.is를 쓰면 좀 더 수월하게 -0 구분이 가능하다!
+console.log(Object.is(negZero, -0)); // true
+console.log(Object.is(negZero, 0));  // false
+// Nan 도 마찬가지도 쉽게 구분가능
+var NaNVar = 2 / "str";
+console.log(Object.is(NaNVar, NaN));  // true
