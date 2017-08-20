@@ -41,3 +41,6 @@ console.log(Object.is(negZero, 0));  // false
 // Nan 도 마찬가지도 쉽게 구분가능
 var NaNVar = 2 / "str";
 console.log(Object.is(NaNVar, NaN));  // true
+// 위 상황은 모두 특이케이스로서,
+// ==나 ===로 구분 가능하다면 굳이 Object.is는 사용하지 않는게 좋다.
+// 기본연산자가 훨씬 효율이 좋기 때문
