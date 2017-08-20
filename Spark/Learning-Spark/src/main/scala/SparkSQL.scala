@@ -15,22 +15,22 @@ object SparkSQL {
     val conf = new SparkConf().setAppName("SparkSQL").setMaster("local[*]")
     val sc = new SparkContext(conf)
     LogManager.getRootLogger.setLevel(Level.WARN)
-    
+
     val sparkSession = SparkSession.builder.enableHiveSupport().getOrCreate()
-    
+
     println("====Read json content====")
-    val inputDataSet = sparkSession.read.json("files/testtweet.json") // json 파일 내용에 enter line 들어가면 인식못함
+    val inputDataFrame = sparkSession.read.json("files/testtweet.json") // json 파일 내용에 enter line 들어가면 인식못함
 
     // Spark SQL 쿼리를 직접 날려보기
     // registerTempTable is deprecated. Use createOrReplaceTempView
 //    inputDataSet.registerTempTable("tweets")
-    inputDataSet.createOrReplaceTempView("tweets")
+    inputDataFrame.createOrReplaceTempView("tweets")
     val topTweets = sparkSession.sql("SELECT text, retweetCount FROM tweets ORDER BY retweetCount LIMIT 10")
     topTweets.show()
     topTweets.printSchema()
 
     // 기본 데이터프레임 연산 사용해보기
-    inputDataSet.select("text", "retweetCount").show()
+    inputDataFrame.select("text", "retweetCount").show()
 
     println("====Getting first column====")
     val topTweetsText = topTweets.rdd.map(row => row.getString(0))
