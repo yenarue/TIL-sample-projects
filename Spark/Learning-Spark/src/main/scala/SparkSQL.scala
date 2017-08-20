@@ -3,6 +3,7 @@ package com.yenarue.study
 import org.apache.log4j.{Level, LogManager}
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.types._
 
 // HiveContext is Deprecated. Use SparkSession.builder.enableHiveSupport instead. Since 2.0.0.
 //import org.apache.spark.sql.hive.HiveContext
@@ -33,11 +34,23 @@ object SparkSQL {
     inputDataFrame.select("text", "retweetCount").show()
 
     println("====Getting first column====")
-    val topTweetsText = topTweets.rdd.map(row => row.getString(0))
+    val topTweetsRDD = topTweets.rdd
+    val topTweetsText = topTweetsRDD.map(row => row.getString(0))
     topTweetsText.collect().foreach(println)
 
     println("====Multiline json contents====")
-    val peopleDataSet = sparkSession.read.json("files/people.json") // json 파일 내용에 enter line이 들어가면 다음 Row로 인식
-    peopleDataSet.select("*").show()
+    val peopleDataFrame = sparkSession.read.json("files/people.json") // json 파일 내용에 enter line이 들어가면 다음 Row로 인식
+    peopleDataFrame.select("*").show()
+    peopleDataFrame.printSchema()
+
+    println("====Convert DataFrame to RDD")
+    val peopleRDD = peopleDataFrame.rdd
+
+    println("====Convert RDD to DataFrame====")
+    val peopleScheme = new StructType(Array(StructField("age", LongType, nullable = false),
+                                            StructField("job", StringType, nullable = true),
+                                            StructField("name", StringType, nullable = false)))
+    val peopleDataFrame2 = sparkSession.createDataFrame(topTweetsRDD, peopleScheme)
+    peopleDataFrame2.show()
   }
 }
