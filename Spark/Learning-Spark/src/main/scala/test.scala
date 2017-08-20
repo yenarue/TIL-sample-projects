@@ -84,5 +84,16 @@ object Test{
     val reasonableDistances = listRDD.filter(x => math.abs(x - mean) < 3 * stddev)
     println(reasonableDistances.collect().toList)
 
+    println("====Job, Task, Job Stage====")
+    val inputRDD = sc.textFile("./README.md")
+    val tokenizedRDD = inputRDD.filter(line => line.size > 0)
+                              .map(line => line.split(" "))
+    val countsRDD = tokenizedRDD.map(words => (words(0), 1))
+                              .reduceByKey((a, b) => a + b)
+    println(inputRDD.toDebugString)
+    println(countsRDD.toDebugString)
+    countsRDD.cache()
+    countsRDD.collect()
+//    Thread.sleep(100000)
   }
 }
