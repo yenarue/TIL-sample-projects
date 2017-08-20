@@ -9,16 +9,19 @@ import org.apache.spark.sql.SparkSession
 
 /* 확실히 오래된 책이라 디프리케이티드 된 것들이 많다....ㅠㅠ */
 object SparkSQL {
+  println("====Spark SQL====")
   //  override def main(args: Array[String]): Unit = {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("SparkSQL").setMaster("local[*]")
     val sc = new SparkContext(conf)
     LogManager.getRootLogger.setLevel(Level.WARN)
-
-    println("====Spark SQL====")
+    
     val sparkSession = SparkSession.builder.enableHiveSupport().getOrCreate()
+    
+    println("====Read json content====")
     val inputDataSet = sparkSession.read.json("files/testtweet.json") // json 파일 내용에 enter line 들어가면 인식못함
 
+    // Spark SQL 쿼리를 직접 날려보기
     // registerTempTable is deprecated. Use createOrReplaceTempView
 //    inputDataSet.registerTempTable("tweets")
     inputDataSet.createOrReplaceTempView("tweets")
@@ -26,8 +29,15 @@ object SparkSQL {
     topTweets.show()
     topTweets.printSchema()
 
-    inputDataSet.select("text").show()
+    // 기본 데이터프레임 연산 사용해보기
+    inputDataSet.select("text", "retweetCount").show()
 
-    //    Thread.sleep(100000)
+    println("====Getting first column====")
+    val topTweetsText = topTweets.rdd.map(row => row.getString(0))
+    topTweetsText.collect().foreach(println)
+
+    println("====Multiline json contents====")
+    val peopleDataSet = sparkSession.read.json("files/people.json") // json 파일 내용에 enter line이 들어가면 다음 Row로 인식
+    peopleDataSet.select("*").show()
   }
 }
