@@ -12,6 +12,37 @@ object DataSaveLoad {
     LogManager.getRootLogger.setLevel(Level.WARN)
     val sparkSession = SparkSession.builder.enableHiveSupport().getOrCreate()
 
+    {
+      // Load
+      val textRDD = sc.textFile("files/README.md")
+      val jsonRDD = sc.textFile("files/people.json")
+      val personRDD = jsonRDD.map(line => new Gson().fromJson(line, classOf[Person]))
+      val objectRDD = sc.objectFile[Person]("result-object")
+      val seqRDD = sc.sequenceFile[String, Int]("result-seq")
+
+      // Save
+      textRDD.saveAsTextFile("result-text")
+      personRDD.map(person => new Gson().toJson(person)).saveAsTextFile("result-json")
+      objectRDD.saveAsObjectFile("result-object")
+      seqRDD.saveAsSequenceFile("result-seq")
+    }
+
+    {
+      val id = "yenarue"
+      val accessKey = "pw"
+      val master = "dd"
+      val port = "222"
+
+      // Local
+      val localFile = sc.textFile("file:///home/yenarue/files/README.md")
+      // S3
+      sc.hadoopConfiguration.set("fs.s3n.awsAccessKeyId", id)
+      sc.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", accessKey)
+      val awsFile = sc.textFile("s3n://myBucket/files/README.md")
+      // HDFS
+      val hdFile = sc.textFile("hdfs://" + master + ": " + port + "/files/README.md")
+    }
+
     println("===Json===")
     val jsonRDD = sc.textFile("files/people.json")
     jsonRDD.map(line => {
