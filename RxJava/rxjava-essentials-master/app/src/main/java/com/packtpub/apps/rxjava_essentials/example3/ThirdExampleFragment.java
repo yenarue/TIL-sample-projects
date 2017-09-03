@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.Observer;
-import rx.Subscriber;
 import rx.Subscription;
 
 public class ThirdExampleFragment extends Fragment {
@@ -96,13 +95,35 @@ public class ThirdExampleFragment extends Fragment {
                         mAdapter.addApplication(mAddedApps.size() - 1, appInfo);
                     }
                 });
-        
+
+        Observable.just(appOne, appTwo, appThree)
+//                .repeat(3) // 세번 반복해서 발행
+                .subscribe(appInfo -> {
+                            mAddedApps.add(appInfo);
+                            mAdapter.addApplication(mAddedApps.size() - 1, appInfo);
+                        },
+                        e -> {
+                            Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            mSwipeRefreshLayout.setRefreshing(false);
+                        },
+                        () -> {
+                            mSwipeRefreshLayout.setRefreshing(false);
+                            Toast.makeText(getActivity(), "Here is the list!", Toast.LENGTH_LONG).show();
+                        }
+                );
+
         // 일정 시간 후에 발행하는 옵저버블! // use interval(long, long, TimeUnit, Scheduler) instead
         mTimeSubscription = Observable.timer(3, 3, TimeUnit.SECONDS)
                 .subscribe(number -> Log.d("RXJAVA", "I say " + number));
 
-        // 1.x 버전대에 추가된 것으로 보임
+        // 1.x 버전대에 추가된 것으로 보였으나 1.3.0에서 삭제되고 create로 대체됨
 //        Observable.fromEmitter
+//        Observable.create(emitter -> {
+//            emitter.onNext("test");
+//            emitter.onNext("test2");
+//            emitter.onCompleted();
+//        }, Emitter.BackpressureMode.BUFFER)
+
 
 //        // range(X, N) : X ~ X + N - 1
 //        Observable.range(10, 3)
