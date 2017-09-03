@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,9 +35,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import butterknife.Unbinder;
+import lombok.Data;
 import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.observables.GroupedObservable;
 import rx.schedulers.Schedulers;
 
 public class FirstExampleFragment extends Fragment {
@@ -81,6 +84,32 @@ public class FirstExampleFragment extends Fragment {
                     mFilesDir = file;
                     refreshTheList();
                 });
+
+        ////////// for test
+        @Data class Habbit {
+            final String title;
+        };
+
+        @Data class Person {
+            final String name;
+            final int age;
+            final String grade;
+        };
+
+        Person yena, seungha, hyerim, kirim;
+
+        yena = new Person("Yena", 27, "A");
+        seungha = new Person("Seungha", 30, "B");
+        hyerim = new Person("Hyerim", 28, "A");
+        kirim = new Person("Kirim", 29, "B");
+        //////////////
+
+        Observable<GroupedObservable<String, Person>> groupObservable =
+                Observable.just(yena, seungha, hyerim, kirim)
+                .groupBy(Person::getGrade);
+
+        Observable.concat(groupObservable)
+                .subscribe(person -> Log.d("RxJavaTest", person.toString()));
     }
 
     private Observable<File> getFileDir() {
