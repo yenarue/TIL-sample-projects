@@ -97,6 +97,18 @@ element의 콘텐츠 영역이 아닌 속성들을 바인딩하기 위해 사용
 ### v-show, v-if, v-else, v-else-if
 **v-if**, **v-else-if**, **v-else** : 조건에 맞으면 렌더링
 **v-show** : 렌더링 해놓고 조건에 맞으면 visible
+`v-if` 류 사용 시, 변경된 부분만 재렌더링 한다. 그게 맘에 들지 않는다면 `key` 속성을 사용해서 아예 처음부터 렌더링 되도록 하자. [#참고](https://kr.vuejs.org/v2/guide/conditional.html#key를-이용한-재사용-가능한-엘리먼트-제어)
+```xml
+<!-- Vue.js Guide에서 발췌 -->
+<template v-if="loginType === 'username'">
+  <label>사용자 이름</label>
+  <input placeholder="사용자 이름을 입력하세요" key="username-input">
+</template>
+<template v-else>
+  <label>이메일</label>
+  <input placeholder="이메일 주소를 입력하세요" key="email-input">
+</template>
+```
 
 ### v-for
 ```xml
