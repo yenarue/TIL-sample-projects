@@ -8,11 +8,12 @@ Mac/Linux에서는 LF, Windows는 CRLF로 개행을 한다. 그렇다보니 다�
 
 ### core.autocrlf
 | 값 | 설명 | 추천os |
-|--------|--------|
+|--------|--------|--------|
 | true | 자동으로 CRLF를 LF로 변환해주고, Checkout할 때에는 LF를 CRLF로 변환해주는 기능 활성화 | Windows |
 | false | 위의 기능이 꺼진다. (CR도 커밋됨)| |
 | input | 커밋할때에만 CRLF를 LF로 변환한다 | Linux/Mac|
- 
+
+
 ```bash
 # 윈도우에서는 true로 설정
 $ git config --global core.autocrlf true
