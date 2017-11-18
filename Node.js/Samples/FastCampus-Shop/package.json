@@ -1,0 +1,15 @@
+{
+  "name": "fastcampus-shop",
+  "version": "1.0.0",
+  "description": "패스트캠퍼스 - 쇼핑몰 프로젝트",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "김예나 (Yena Kim, Yenarue)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
