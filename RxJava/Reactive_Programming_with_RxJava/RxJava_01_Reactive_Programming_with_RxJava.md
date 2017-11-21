@@ -1,5 +1,6 @@
 1. RxJava를 활용한 리액티브 프로그래밍
 ==========
+※ 개인적으로 이해한 내용을 적은 것이므로 잘못되었거나 부족한 내용이 있을 수 있습니다.
 
 # RxJava는 어떻게 동작하는걸까?
 * Reactive 방식을 지향하지만 Interactive 방식으로도 사용 가능하다.
@@ -138,7 +139,7 @@ Observable.<Integer>create(s -> {
   .subscribe(s -> System.out.println("SOME VALUE =>" + s)); // 4
 System.out.println("Will print BEFORE values are emitted because Observable is async"); // 1
 ```
-위 예시코드에서, filter와 map연산은 onNext()다음에 동기적으로 실행된다.
+위 예시코드에서, `filter`와 `map`연산은 `onNext()`다음에 동기적으로 실행된다.
 콘솔화면에 표시되는 내용은 다음과 같다. 출력 순서에 유의해서 보도록 하자.
 ```bash
 Will print BEFORE values are emitted because Observable is async
@@ -148,4 +149,4 @@ SOME VALUE =>Value 42 processed on Thread[MyThread,5,main]
 end=Thread[MyThread,5,main]
 ```
 
-### 동시성과 병렬성
+## 동시성과 병렬성

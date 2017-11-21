@@ -1,5 +1,7 @@
 0. Rx와 RxJava에 대한 개념과 사상에 대한 이해
 ============
+※ 개인적으로 이해한 내용을 적은 것이므로 잘못되었거나 부족한 내용이 있을 수 있습니다.
+
 > `1장. RxJava를 활용한 리액티브 프로그래밍` 의 초반 4~5페이지에서 Rx와 RxJava의 기본이 된 개념과 사상에 대해 언급되어있는 부분이 인상깊어 이 부분만 따로 자세히 정리해보기로 했다.
 
 > 단순히 Rx 라이브러리 자체에만 집중하는 것이 아니라 Reactive Programming, Functional Programming, Reactive Functional Programming, 명령형 프로그래밍, 선언적 프로그래밍 등 basis 개념들에 대해 고찰하는 계기가 되었다.
