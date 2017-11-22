@@ -22,12 +22,20 @@ router.post('/products/write', (req, res) => {
     const product = new Products({
         name : req.body.name,
         price : req.body.price,
-        description : req.body.desription
+        description : req.body.description
     })
 
     product.save((err) => {
         res.redirect('/admin/products');     
     })
+});
+
+router.get('/products/detail/:id', function (req, res) {
+    Products.findOne(
+        { 'id': req.params.id },
+        (err, product) => {
+            res.render('admin/productsDetail', { product: product });
+        });
 });
 
 module.exports = router;
