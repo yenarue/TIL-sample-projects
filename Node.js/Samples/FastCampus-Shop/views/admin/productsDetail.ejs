@@ -12,10 +12,54 @@
             <%=product.getDate.day%>
         </div>
         <%=product.description%>
+
+        <hr/>
+        <div id="comment_area">
+            <%comments.forEach(comment => {%>
+                <div><%=comment.content%></div>
+            <%});%>
+        </div>
+        <div>
+            댓글작성하기
+            <form id="commentForm" action="submit" method="post">
+                <input type="hidden" name="product_id" value="<%=product.id%>" />
+                <textarea class="form-control" name="content" style="resize:none"></textarea>
+                <button class="btn btn-primary" style="margin-top: 10px">댓글작성</button>
+            </form>
+        </div>
     </div>
 </div>
 
 <a href="/admin/products" class="btn btn-default">목록으로</a>
 <a href="/admin/products/edit/<%=product.id%>" class="btn btn-primary">수정</a>
+
+<script>
+(function(){
+    $(document).ready(function() {
+        $('#commentForm').submit(function(){
+            const $contentVal = $(this).children('textarea[name=content]').val();
+
+            if ($contentVal) {
+                $.ajax({
+                    url: '/admin/products/comment/insert',
+                    type: 'POST',
+                    data: $(this).serialize(), // form 안에 있는 데이터들을 알아서 serialize 해준다.
+                }).done(res => {
+                    if (res.message === "success") {
+                        $('#comment_area').append(
+                            '<div>' + res.content + '</div>'
+                        );
+                        $('#commentForm textarea[name=content]').val("");
+                    }
+                }).fail(err => console.log(err));
+            } else {
+                alert("댓글 내용을 입력해주세요.");
+            }
+
+            return false;
+        });
+    });
+})();
+</script>
 
 <% include ../footer.ejs %>
