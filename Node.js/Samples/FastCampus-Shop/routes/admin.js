@@ -23,19 +23,39 @@ router.post('/products/write', (req, res) => {
         name : req.body.name,
         price : req.body.price,
         description : req.body.description
-    })
+    });
 
     product.save((err) => {
-        res.redirect('/admin/products');     
-    })
+        res.redirect('/admin/products', { product : "" });
+    });
 });
 
-router.get('/products/detail/:id', function (req, res) {
+router.get('/products/detail/:id', (req, res) => {
     Products.findOne(
         { 'id': req.params.id },
         (err, product) => {
             res.render('admin/productsDetail', { product: product });
         });
+});
+
+router.get('/products/edit/:id', (req, res) => {
+    Products.findOne(
+        { 'id': req.params.id },
+        (err, product) => {
+            res.render('admin/form', { product: product });
+        });
+});
+
+router.post('/products/edit/:id', (req, res) => {
+    const product = {
+        name : req.body.name,
+        price : req.body.price,
+        description : req.body.description
+    };
+
+    Products.update({ 'id' : req.params.id }, { $set : product }, err => {
+        res.redirect('/admin/products/detail/' + req.params.id);
+    })
 });
 
 module.exports = router;
