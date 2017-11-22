@@ -15,7 +15,7 @@ router.get('/products', (req, res) => {
 });
 
 router.get('/products/write', (req, res) => {
-    res.render('admin/form');
+    res.render('admin/form', { product : "" });
 });
 
 router.post('/products/write', (req, res) => {
@@ -26,7 +26,7 @@ router.post('/products/write', (req, res) => {
     });
 
     product.save((err) => {
-        res.redirect('/admin/products', { product : "" });
+        res.redirect('/admin/products');
     });
 });
 
@@ -55,7 +55,13 @@ router.post('/products/edit/:id', (req, res) => {
 
     Products.update({ 'id' : req.params.id }, { $set : product }, err => {
         res.redirect('/admin/products/detail/' + req.params.id);
-    })
+    });
+});
+
+router.get('/products/delete/:id', (req, res) => {
+    Products.remove({ id : req.params.id }, err => {
+        res.redirect('/admin/products');
+    });
 });
 
 module.exports = router;
