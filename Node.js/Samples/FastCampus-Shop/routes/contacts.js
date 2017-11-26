@@ -19,4 +19,16 @@ router.get('/write', (req, res) => {
     res.render('contacts/form');
 })
 
+router.post('/write', (req, res) => {
+    const contacts = new Contacts({
+        title : req.body.title,
+        author : req.body.author,
+        contents : req.body.contents
+    });
+
+    contacts.save((err) => {
+        res.redirect('/contacts/');
+    });
+})
+
 module.exports = router;

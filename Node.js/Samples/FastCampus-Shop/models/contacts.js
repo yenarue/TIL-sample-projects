@@ -5,7 +5,7 @@ const autoIncrement = require('mongoose-auto-increment');
 
 const ContactsSchema = new Schema({
     title : String,
-    contents : Number,
+    contents : String,
     author : String,
     created_at : {
         type : Date,
