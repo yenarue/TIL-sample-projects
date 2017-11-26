@@ -6,15 +6,15 @@
         <table class="table table-bordered">
             <tr>
                 <th>제목</th>
-                <td><input type="text" name="title" class="form-control"/></td>
+                <td><input type="text" name="title" class="form-control" value="<%=contact.title%>"/></td>
             </tr>
             <tr>
                 <th>글쓴이</th>
-                <td><input type="text" name="author" class="form-control"/></td>
+                <td><input type="text" name="author" class="form-control" value="<%=contact.author%>"/></td>
             </tr>
             <tr>
                 <th>내용</th>
-                <td><textarea class="form-control" name="contents"></textarea></td>
+                <td><textarea class="form-control" name="contents"><%=contact.contents%></textarea></td>
             </tr>
         </table>
         <button class="btn btn-primary">작성하기</button>
