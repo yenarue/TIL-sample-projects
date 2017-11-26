@@ -13,6 +13,10 @@ router.get('/', (req, res) => {
             contacts: contacts
         });
     });
+});
+
+router.get('/write', (req, res) => {
+    res.render('contacts/form');
 })
 
 module.exports = router;

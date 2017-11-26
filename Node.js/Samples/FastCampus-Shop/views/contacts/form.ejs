@@ -1,0 +1,21 @@
+<% include ../header.ejs %>
+    <h1>문의글 작성하기</h1>
+    <form action="" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <th>제목</th>
+                <td><input type="text" name="title" class="form-control"/></td>
+            </tr>
+            <tr>
+                <th>글쓴이</th>
+                <td><input type="text" name="author" class="form-control"/></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea class="form-control" name="content"></textarea></td>
+            </tr>
+        </table>
+        <button class="btn btn-primary">작성하기</button>
+    </form>
+
+<% include ../footer.ejs %>
