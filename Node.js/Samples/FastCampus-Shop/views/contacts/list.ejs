@@ -1,5 +1,8 @@
 <% include ../header.ejs %>
 
+    <h1>문의하기 게시판</h1>
+    <hr/>
+    <br/>
     <table class="table table-bordered table-hover">
         <tr>
             <th>no</th>
@@ -13,7 +16,7 @@
                 <%=contact.seq%>
             </td>
             <td>
-                <a href="/contacts/detail/:seq">
+                <a href="/contacts/detail/<%=contact.seq%>">
                     <%=contact.title%>
                 </a>
             </td>

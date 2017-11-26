@@ -1,0 +1,25 @@
+<% include ../header.ejs %>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b><%=contact.title%></b>
+    </div>
+    <div class="panel-body">
+        <div style="padding-bottom: 10px;">
+            <p style="float: left;">
+                <b>작성자 : <%=contact.author%></b>
+            </p>
+            <p style="float: right;">
+                작성일 : 
+                <%=contact.getDate.year%>-<%=contact.getDate.month%>-<%=contact.getDate.day%>
+                <%=contact.getDate.hour%>:<%=contact.getDate.minute%>:<%=contact.getDate.second%>
+            </p>
+        </div>
+        <hr/>
+        <%=contact.contents%>
+    </div>
+</div>
+
+<a href="/contacts" class="btn btn-default">목록으로</a>
+<a href="" class="btn btn-primary">수정</a>
+<% include ../footer.ejs %>
