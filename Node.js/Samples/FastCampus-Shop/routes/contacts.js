@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Contacts = require('../models/contacts');
 
-// /contacts/edit/:id 글수정하기
-// /contacts/delete/:id 글삭제하기
 router.get('/', (req, res) => {
     Contacts.find({}, (err, contacts) => {
         res.render('contacts/list', {
@@ -48,6 +46,12 @@ router.post('/edit/:seq', (req, res) => {
     const seq = req.params.seq;
     Contacts.findOneAndUpdate({ seq : seq }, { $set : req.body }, err => {
        res.redirect('/contacts/detail/' + seq); 
+    });
+})
+
+router.get('/delete/:seq', (req, res) => {
+    Contacts.remove({ seq : req.params.seq }, err => {
+        res.redirect('/contacts/');
     });
 })
 
