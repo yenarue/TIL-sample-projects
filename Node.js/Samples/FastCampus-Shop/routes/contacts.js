@@ -9,6 +9,10 @@ const Contacts = require('../models/contacts');
 // /contacts/delete/:id 글삭제하기
 router.get('/', (req, res) => {
     Contacts.find({}, (err, contacts) => {
-        res.render('/admin/')
+        res.render('contacts/list', {
+            contacts: contacts
+        });
     });
 })
+
+module.exports = router;
