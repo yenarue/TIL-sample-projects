@@ -18,9 +18,13 @@
                 </a>
             </td>
             <td>
+                <%=contact.author%>
+            </td>
+            <td>
                 <%=contact.getDate.year%>
                 <%=contact.getDate.month%>
                 <%=contact.getDate.day%>
+                <%=contact.getDate.hour%>:<%=contact.getDate.minute%>:<%=contact.getDate.second%>
             </td>
         </tr>
         <%});%>
