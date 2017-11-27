@@ -26,9 +26,13 @@ router.post('/products/write', (req, res) => {
         description : req.body.description
     });
 
-    product.save((err) => {
-        res.redirect('/admin/products');
-    });
+    const isValid = product.validateSync();
+
+    if (isValid) {
+        res.send(isValid);
+    } else {
+        product.save(err => res.redirect('/admin/products'));
+    }
 });
 
 router.get('/products/detail/:id', (req, res) => {
@@ -54,9 +58,14 @@ router.post('/products/edit/:id', (req, res) => {
         description : req.body.description
     };
 
-    Products.update({ 'id' : req.params.id }, { $set : product }, err => {
-        res.redirect('/admin/products/detail/' + req.params.id);
-    });
+    const isValid = new Products(product).validateSync();
+    if (!isValid) {
+        Products.update({ 'id' : req.params.id }, { $set : product }, err => {
+            res.redirect('/admin/products/detail/' + req.params.id);
+        });
+    } else {
+        res.send(isValid);
+    }
 });
 
 router.get('/products/delete/:id', (req, res) => {

@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const autoIncrement = require('mongoose-auto-increment');
 
 const ProductsSchema = new Schema({
-    name : String,
+    name : {
+        type : String,
+        required : [true, '제목을 입력해주세요']
+    },
     price : Number,
     description : String,
     created_at : {
