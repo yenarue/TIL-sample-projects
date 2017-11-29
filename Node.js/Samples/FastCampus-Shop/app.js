@@ -40,6 +40,7 @@ app.use(cookieParser());
 // Routing :-)
 app.use('/admin', admin);
 app.use('/contacts', contacts);
+app.use('/uploads', express.static('uploads'));
 
 app.listen(port, () => {
    console.log('Express listening on port', port); 
