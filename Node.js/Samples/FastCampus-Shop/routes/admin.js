@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Products = require('../models/products');
 const Comments = require('../models/comments');
+const csrf = require('csurf');
+const csrfProtection = csrf({ cookie: true});
 
 router.get('/', (req, res) => {
     res.send('It is a admin app!');
@@ -15,11 +17,11 @@ router.get('/products', (req, res) => {
     });
 });
 
-router.get('/products/write', (req, res) => {
-    res.render('admin/form', { product : "" });
+router.get('/products/write', csrfProtection, (req, res) => {
+    res.render('admin/form', { product : "", csrfToken : req.csrfToken() });
 });
 
-router.post('/products/write', (req, res) => {
+router.post('/products/write', csrfProtection, (req, res) => {
     const product = new Products({
         name : req.body.name,
         price : req.body.price,
