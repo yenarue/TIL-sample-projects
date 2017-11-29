@@ -18,6 +18,7 @@ autoIncrement.initialize(connect);
 
 const admin = require('./routes/admin');
 const contacts = require('./routes/contacts');
+const accounts = require('./routes/accounts');
 
 const app = express();
 const port = 3000;
@@ -41,6 +42,7 @@ app.use(cookieParser());
 app.use('/admin', admin);
 app.use('/contacts', contacts);
 app.use('/uploads', express.static('uploads'));
+app.use('/accounts', accounts);
 
 app.listen(port, () => {
    console.log('Express listening on port', port); 
