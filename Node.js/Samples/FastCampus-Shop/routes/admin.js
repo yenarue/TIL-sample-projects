@@ -10,7 +10,7 @@ const fs = require('fs');
 
 // multer 설정
 const multer = require('multer')
-const strage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination : (req, file, callback) => {
         callback(null, uploadDir);
     },
@@ -70,15 +70,15 @@ router.get('/products/edit/:id', (req, res) => {
 });
 
 router.post('/products/edit/:id', upload.single('thumbnail'), (req, res) => {
-    Products.findOne({ id : req.params.id }, (err, product) => {
+    Products.findOne({ id : req.params.id }, (err, result) => {
         // 수정하고자하는 파일이 존재하면 이전 이미지를 지운다.
         if (req.file) {
-            fs.unlinkSync(uploadDir + "/" + product.thumbnail);
+            fs.unlinkSync(uploadDir + "/" + result.thumbnail);
         }
 
         const product = {
             name : req.body.name,
-            thumbnail : (req.file) ? req.file.filename : product.thumbnail,
+            thumbnail : (req.file) ? req.file.filename : result.thumbnail,
             price : req.body.price,
             description : req.body.description
         };
