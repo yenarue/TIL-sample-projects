@@ -83,6 +83,9 @@ ReplaySubject.createWithTimeAndSize()
 * 동시성이 깨질 수 있다. `onNext`는 언제나 순서대로 호출되어야 하는데 (앞서 언급한 Rx 규약) Subject 메서드 호출을 여러 쓰레드에서 하게되면 충분히 겹치는 상황이 발생할 수 있다. 다행히 `Subject`도 `toSerialized()`라는 직렬화 메서드를 제공하니 꼭 사용하도록 하자. 이벤트가 다운스트림으로 순서대로 내려가게 해준다.
 ~~이럴거면 걍 Serialized를 디폴트로 부르게 하면 안됬던거냐!!!~~
 
+### 그래서, `Subject`는 어느 상황에 쓰이는 걸까?
+이벤트 버스 대용으로 자주 쓰이는 듯 하다. 예전에 연습용으로 실시간 서치 뷰를 만들때 사용했었는데 현지님도 사용하신적이 있다고 하셔서 반가웠다. 그 외에는... 그닥...잘... 아직 제대로 사용할 줄 몰라서 그런거일수도...
+
 ## [ConnectableObservable](https://github.com/ReactiveX/RxJava/wiki/Connectable-Observable-Operators)
 
 **여러 구독자가 하나의 구독을 공유**하는 형태의 Observable이다.
