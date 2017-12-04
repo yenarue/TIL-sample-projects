@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const passwordHash = require('../libs/passwordHash');
+const passwordHash = require('../middlewares/passwordHash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const Users = require('../models/users');

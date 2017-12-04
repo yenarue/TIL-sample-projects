@@ -24,6 +24,8 @@ const contacts = require('./routes/contacts');
 const accounts = require('./routes/accounts');
 const auth = require('./routes/auth');
 
+const loginRequired = require('./middlewares/loginRequired');
+
 const app = express();
 const port = 3000;
 
@@ -71,7 +73,7 @@ app.use((req, res, next) => {
 })
 
 // Routing :-)
-app.use('/admin', admin);
+app.use('/admin', loginRequired);
 app.use('/contacts', contacts);
 app.use('/accounts', accounts);
 app.use('/auth', auth);
