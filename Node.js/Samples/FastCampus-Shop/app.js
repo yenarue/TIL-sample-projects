@@ -23,6 +23,7 @@ const admin = require('./routes/admin');
 const contacts = require('./routes/contacts');
 const accounts = require('./routes/accounts');
 const auth = require('./routes/auth');
+const chat = require('./routes/chat');
 const home = require('./routes/home');
 
 const loginRequired = require('./middlewares/loginRequired');
@@ -73,8 +74,17 @@ app.use('/admin', loginRequired, admin);
 app.use('/contacts', contacts);
 app.use('/accounts', accounts);
 app.use('/auth', auth);
+app.use('/chat', chat);
 app.use('/', home);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
    console.log('Express listening on port', port); 
 });
+
+const listen = require('socket.io');
+const io = listen(server);
+io.on('connection', socket => {
+    socket.on('client message', data => {
+        io.emit('server message', data.message);
+    })
+})
