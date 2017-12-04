@@ -41,7 +41,8 @@ router.post('/products/write', upload.single('thumbnail'), csrfProtection, (req,
         name : req.body.name,
         thumbnail : req.file ? req.file.filename : "",
         price : req.body.price,
-        description : req.body.description
+        description : req.body.description,
+        username : req.user.username,
     });
 
     const isValid = product.validateSync();

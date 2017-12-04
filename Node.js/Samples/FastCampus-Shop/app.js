@@ -23,6 +23,7 @@ const admin = require('./routes/admin');
 const contacts = require('./routes/contacts');
 const accounts = require('./routes/accounts');
 const auth = require('./routes/auth');
+const home = require('./routes/home');
 
 const loginRequired = require('./middlewares/loginRequired');
 
@@ -33,10 +34,6 @@ const port = 3000;
 // *.ejs View Engine을 추가한다
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-app.get('/', (req, res) => {
-    res.send('It is my first web app');
-});
 
 // Upload Path
 app.use('/uploads', express.static('uploads'));
@@ -68,15 +65,15 @@ app.use(flash());
 // 로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
 app.use((req, res, next) => {
     app.locals.isLogin = req.isAuthenticated();
-    app.locals.myname = "hello";
     next();
 })
 
 // Routing :-)
-app.use('/admin', loginRequired);
+app.use('/admin', loginRequired, admin);
 app.use('/contacts', contacts);
 app.use('/accounts', accounts);
 app.use('/auth', auth);
+app.use('/', home);
 
 app.listen(port, () => {
    console.log('Express listening on port', port); 
