@@ -13,6 +13,7 @@ const UserSchema = new Schema({
         required: [true, '패스워드는 필수입니다.']
     },
     displayname : String,
+    type : String,
     created_at : {
         type : Date,
         default : Date.now()
