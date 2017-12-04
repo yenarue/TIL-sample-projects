@@ -48,7 +48,7 @@ router.get('/facebook', passport.authenticate('facebook', { scope: 'email'}) );
 //인증후 페이스북에서 이 주소로 리턴해줌. 상단에 적은 callbackURL과 일치
 router.get('/facebook/callback',
     passport.authenticate('facebook', { 
-            successRedirect: '/auth/facebook/success',
+            successRedirect: '/',
             failureRedirect: '/auth/facebook/fail' 
         }));
 

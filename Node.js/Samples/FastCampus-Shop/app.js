@@ -66,6 +66,7 @@ app.use(flash());
 // 로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
 app.use((req, res, next) => {
     app.locals.isLogin = req.isAuthenticated();
+    app.locals.myname = "hello";
     next();
 })
 
