@@ -1,6 +1,6 @@
 package com.yenarue.rxjava;
 
-import com.yenarue.rxjava.util.Pair;
+import com.yenarue.rxjava.structure.Pair;
 import rx.Observable;
 
 import java.util.concurrent.TimeUnit;

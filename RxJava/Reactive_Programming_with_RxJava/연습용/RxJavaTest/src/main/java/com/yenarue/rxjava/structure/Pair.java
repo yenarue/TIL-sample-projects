@@ -1,4 +1,4 @@
-package com.yenarue.rxjava.util;
+package com.yenarue.rxjava.structure;
 
 import com.google.common.base.Objects;
 
