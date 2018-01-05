@@ -398,3 +398,10 @@ http://blog.danlew.net/2015/03/02/dont-break-the-chain/
 
 ### lift
 완전히 새로운 연산자를 만들어 낼 수 있는 연산자.
+
+
+## 뭐지뭐지 멘붕쓰 더 알아보기
+### [join](http://reactivex.io/documentation/operators/join.html)
+[참고링크](https://github.com/Froussios/Intro-To-RxJava/blob/master/Part%204%20-%20Concurrency/3.%20Sequences%20of%20coincidence.md)
+
+Default Scheduler : ComputationScheduler ㅎㄸㄸ
