@@ -30,3 +30,6 @@
 * [[김정래 세무사의 5분특강] 스타트업 창업자 - 오리엔테이션](https://www.youtube.com/watch?v=qBEcnLJUhlA)
 * [스타트업랩](https://www.youtube.com/results?search_query=%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EB%9E%A9)
 * [개인사업자 법인전환 총정리, 이것만 읽으면 충분합니다.](https://blog.help-me.kr/2018/01/15208/)
+
+# 3. ETC
+* [참여형 스타트업 용어사전(beta)](http://startup-wiki.kr/)
