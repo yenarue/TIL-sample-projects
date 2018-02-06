@@ -17,6 +17,10 @@
 그럼에도 불구하고 내가 계속 잘하고 싶은 일이 있을거예요.
 그게 꿈이에요. - 아무것도 아닌 지금은 없다 中
 
+## 도서
+* [스타트업 생존의 기술](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12299947)
+* [스타트업하고 앉아있네](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12523681)
+
 ## 방법론
 * [애자일과 린, 그리고 워터폴](https://brunch.co.kr/@insuk/17)
 
@@ -25,3 +29,4 @@
 * [창업과 세금 이야기 - 이요원, 국세청 사무관 / YTN 사이언스](https://youtu.be/WwTdq1PdsYo)
 * [[김정래 세무사의 5분특강] 스타트업 창업자 - 오리엔테이션](https://www.youtube.com/watch?v=qBEcnLJUhlA)
 * [스타트업랩](https://www.youtube.com/results?search_query=%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EB%9E%A9)
+* [개인사업자 법인전환 총정리, 이것만 읽으면 충분합니다.](https://blog.help-me.kr/2018/01/15208/)
