@@ -18,9 +18,9 @@ public class myTest {
     @Before
     public void setUp() throws Exception {
         RxJavaHooks.reset();
-        RxJavaHooks.onIOScheduler(Schedulers.immediate());
-        RxJavaHooks.onComputationScheduler(Schedulers.immediate());
-        RxJavaHooks.onNewThreadScheduler(Schedulers.immediate());
+        RxJavaHooks.onIOScheduler(Schedulers.trampoline());
+        RxJavaHooks.onComputationScheduler(Schedulers.trampoline());
+        RxJavaHooks.onNewThreadScheduler(Schedulers.trampoline());
 
         yena = Speech.speak("my name is yena", 100).map(word -> "yena : " + word);
         seungha = Speech.speak("Hello, I'm SeungHa", 300).map(word -> "seungha : " + word);
