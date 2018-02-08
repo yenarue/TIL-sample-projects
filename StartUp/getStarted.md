@@ -1,7 +1,7 @@
 스타트업 준비
 ============
 
-# 1. 계몽(?)
+# #마인드셋
 ## 스타트업 시작 전
 * [대기업 개발자의 스타트업 생존기](https://brunch.co.kr/@dragonchoi/1)
 * [내가 삼성을 떠난 이유](http://news.chosun.com/misaeng/svc/job_search.html?squery=%EB%82%B4%EA%B0%80+%EC%82%BC%EC%84%B1%EC%9D%84+%EB%96%A0%EB%82%9C+%EC%9D%B4%EC%9C%A0)
@@ -24,12 +24,15 @@
 ## 방법론
 * [애자일과 린, 그리고 워터폴](https://brunch.co.kr/@insuk/17)
 
-# 2. 세무/회계/재무
+# #세무/회계/재무
 * [스타트업 기업이 세금 폭탄 피하는 세무비법 A to Z](https://youtu.be/AKYZVDN01ws)
 * [창업과 세금 이야기 - 이요원, 국세청 사무관 / YTN 사이언스](https://youtu.be/WwTdq1PdsYo)
 * [[김정래 세무사의 5분특강] 스타트업 창업자 - 오리엔테이션](https://www.youtube.com/watch?v=qBEcnLJUhlA)
 * [스타트업랩](https://www.youtube.com/results?search_query=%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EB%9E%A9)
 * [개인사업자 법인전환 총정리, 이것만 읽으면 충분합니다.](https://blog.help-me.kr/2018/01/15208/)
 
-# 3. ETC
+# #그룹웨어
+* [수기](http://naver.me/Fh2LTwgM)
+
+# #ETC
 * [참여형 스타트업 용어사전(beta)](http://startup-wiki.kr/)
