@@ -1,7 +1,7 @@
 스타트업 준비
 ============
 
-# #마인드셋
+# # 마인드셋
 ## 스타트업 시작 전
 * [대기업 개발자의 스타트업 생존기](https://brunch.co.kr/@dragonchoi/1)
 * [내가 삼성을 떠난 이유](http://news.chosun.com/misaeng/svc/job_search.html?squery=%EB%82%B4%EA%B0%80+%EC%82%BC%EC%84%B1%EC%9D%84+%EB%96%A0%EB%82%9C+%EC%9D%B4%EC%9C%A0)
@@ -25,7 +25,7 @@
 * [스타트업하고 앉아있네](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12523681)
 * [하드씽](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=8501719)
 
-# #업무방식
+# # 업무방식
 
 ## 방법론
 * [애자일과 린, 그리고 워터폴](https://brunch.co.kr/@insuk/17)
@@ -33,7 +33,7 @@
 ## 포스팅
 * [왜 정작 사무실에서 일이 제일 안 될까?](https://brunch.co.kr/@dohyunkim/121)
 
-# #창업준비
+# # 창업준비
 * [[유튜브] 스타트업위키](https://www.youtube.com/channel/UCfpfrNK3iKi93gYeTl5Z4FA)
 
 ## 세무/회계/재무
@@ -43,11 +43,12 @@
 * [스타트업랩](https://www.youtube.com/results?search_query=%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EB%9E%A9)
 * [개인사업자 법인전환 총정리, 이것만 읽으면 충분합니다.](https://blog.help-me.kr/2018/01/15208/)
 
-# #커뮤니티
-*[Get connected | 대표적인 여성 창업가 커뮤니티 소개 |](https://www.youtube.com/watch?v=rAJej4l8jiU)
+# # 커뮤니티
+* [K-스타트업](https://www.k-startup.go.kr/main.do)
+* [Get connected | 대표적인 여성 창업가 커뮤니티 소개 |](https://www.youtube.com/watch?v=rAJej4l8jiU)
 
-# #그룹웨어
+# # 그룹웨어
 * [수기](http://naver.me/Fh2LTwgM)
 
-# #ETC
+# # ETC
 * [참여형 스타트업 용어사전(beta)](http://startup-wiki.kr/)
