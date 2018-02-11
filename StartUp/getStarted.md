@@ -18,7 +18,7 @@
 그게 꿈이에요. - 아무것도 아닌 지금은 없다 中
 
 ## 창업
-* [여성사업가 유튜브 플레이리스트](https://www.youtube.com/watch?v=Dd0xKd1FPh0&list=PL1EEzJ4dg0CjalxseITEyESa-5FReeNlF)
+* [스타트업위키 - 여성사업가](https://www.youtube.com/watch?v=Dd0xKd1FPh0&list=PL1EEzJ4dg0CjalxseITEyESa-5FReeNlF)
 
 ## 도서
 * [스타트업 생존의 기술](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12299947)
@@ -33,7 +33,10 @@
 ## 포스팅
 * [왜 정작 사무실에서 일이 제일 안 될까?](https://brunch.co.kr/@dohyunkim/121)
 
-# #세무/회계/재무
+# #창업준비
+* [[유튜브] 스타트업위키](https://www.youtube.com/channel/UCfpfrNK3iKi93gYeTl5Z4FA)
+
+##세무/회계/재무
 * [스타트업 기업이 세금 폭탄 피하는 세무비법 A to Z](https://youtu.be/AKYZVDN01ws)
 * [창업과 세금 이야기 - 이요원, 국세청 사무관 / YTN 사이언스](https://youtu.be/WwTdq1PdsYo)
 * [[김정래 세무사의 5분특강] 스타트업 창업자 - 오리엔테이션](https://www.youtube.com/watch?v=qBEcnLJUhlA)
