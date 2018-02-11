@@ -36,7 +36,7 @@
 # #창업준비
 * [[유튜브] 스타트업위키](https://www.youtube.com/channel/UCfpfrNK3iKi93gYeTl5Z4FA)
 
-##세무/회계/재무
+## 세무/회계/재무
 * [스타트업 기업이 세금 폭탄 피하는 세무비법 A to Z](https://youtu.be/AKYZVDN01ws)
 * [창업과 세금 이야기 - 이요원, 국세청 사무관 / YTN 사이언스](https://youtu.be/WwTdq1PdsYo)
 * [[김정래 세무사의 5분특강] 스타트업 창업자 - 오리엔테이션](https://www.youtube.com/watch?v=qBEcnLJUhlA)
