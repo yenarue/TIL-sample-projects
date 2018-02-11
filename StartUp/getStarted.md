@@ -20,9 +20,15 @@
 ## 도서
 * [스타트업 생존의 기술](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12299947)
 * [스타트업하고 앉아있네](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12523681)
+* [하드씽](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=8501719)
+
+# #업무방식
 
 ## 방법론
 * [애자일과 린, 그리고 워터폴](https://brunch.co.kr/@insuk/17)
+
+## 포스팅
+* [왜 정작 사무실에서 일이 제일 안 될까?](https://brunch.co.kr/@dohyunkim/121)
 
 # #세무/회계/재무
 * [스타트업 기업이 세금 폭탄 피하는 세무비법 A to Z](https://youtu.be/AKYZVDN01ws)
@@ -30,6 +36,9 @@
 * [[김정래 세무사의 5분특강] 스타트업 창업자 - 오리엔테이션](https://www.youtube.com/watch?v=qBEcnLJUhlA)
 * [스타트업랩](https://www.youtube.com/results?search_query=%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EB%9E%A9)
 * [개인사업자 법인전환 총정리, 이것만 읽으면 충분합니다.](https://blog.help-me.kr/2018/01/15208/)
+
+# #커뮤니티
+*[Get connected | 대표적인 여성 창업가 커뮤니티 소개 |](https://www.youtube.com/watch?v=rAJej4l8jiU)
 
 # #그룹웨어
 * [수기](http://naver.me/Fh2LTwgM)
