@@ -45,6 +45,8 @@
 
 # # 커뮤니티
 * [K-스타트업](https://www.k-startup.go.kr/main.do)
+* [캠퍼스 서울](https://www.campus.co/seoul/ko/)
+* [[Facebook Page]스타트업, 식사 하셨습니까?](https://www.facebook.com/groups/795777620529967/902416993199362/)
 * [Get connected | 대표적인 여성 창업가 커뮤니티 소개 |](https://www.youtube.com/watch?v=rAJej4l8jiU)
 
 # # 그룹웨어
