@@ -18,7 +18,7 @@
 그게 꿈이에요. - 아무것도 아닌 지금은 없다 中
 
 ## 창업
-* [여성사업가](https://www.youtube.com/watch?v=Dd0xKd1FPh0&list=PL1EEzJ4dg0CjalxseITEyESa-5FReeNlF)
+* [여성사업가 플레이리스트](https://www.youtube.com/watch?v=Dd0xKd1FPh0&list=PL1EEzJ4dg0CjalxseITEyESa-5FReeNlF)
 
 ## 도서
 * [스타트업 생존의 기술](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12299947)
