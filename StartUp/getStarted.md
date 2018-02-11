@@ -20,6 +20,10 @@
 ## 창업
 * [스타트업위키 - 여성사업가](https://www.youtube.com/watch?v=Dd0xKd1FPh0&list=PL1EEzJ4dg0CjalxseITEyESa-5FReeNlF)
 
+## CTO
+* [‘개발자는 관리자로 어떻게 성장하는가?’ 8퍼센트 이호성 CTO](https://www.theteams.kr/teamterview/page/327)
+* [테크 스타트업의 CTO로 아직 안망하기](http://blog.kivol.net/post/166938679603/%ED%85%8C%ED%81%AC-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%98-cto%EB%A1%9C-%EC%95%84%EC%A7%81-%EC%95%88%EB%A7%9D%ED%95%98%EA%B8%B0-0-%EC%84%9C%EB%AC%B8)
+
 ## 도서
 * [스타트업 생존의 기술](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12299947)
 * [스타트업하고 앉아있네](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12523681)
