@@ -1,6 +1,12 @@
 스타트업 준비
 ============
 
+스타트업을 준비하며 도움이 될 법한 문서들을 스크랩 한다.
+
+
+---------------------
+
+
 # # 마인드셋
 ## 스타트업 시작 전
 * [대기업 개발자의 스타트업 생존기](https://brunch.co.kr/@dragonchoi/1)
@@ -21,6 +27,7 @@
 * [스타트업위키 - 여성사업가](https://www.youtube.com/watch?v=Dd0xKd1FPh0&list=PL1EEzJ4dg0CjalxseITEyESa-5FReeNlF)
 
 ## CTO
+* [개발자가 모자라요](http://youngrok.com/%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80%20%EB%AA%A8%EC%9E%90%EB%9D%BC%EC%9A%94)
 * [‘개발자는 관리자로 어떻게 성장하는가?’ 8퍼센트 이호성 CTO](https://www.theteams.kr/teamterview/page/327)
 * [테크 스타트업의 CTO로 아직 안망하기](http://blog.kivol.net/post/166938679603/%ED%85%8C%ED%81%AC-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%98-cto%EB%A1%9C-%EC%95%84%EC%A7%81-%EC%95%88%EB%A7%9D%ED%95%98%EA%B8%B0-0-%EC%84%9C%EB%AC%B8)
 * [스타트업 CTO의 일](https://brunch.co.kr/@leehosung/40)
@@ -29,6 +36,8 @@
 * [스타트업 생존의 기술](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12299947)
 * [스타트업하고 앉아있네](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=12523681)
 * [하드씽](http://m.book.naver.com/bookdb/book_detail.nhn?biblio.bid=8501719)
+
+----------
 
 # # 업무방식
 
@@ -44,6 +53,8 @@
 ## 포스팅
 * [왜 정작 사무실에서 일이 제일 안 될까?](https://brunch.co.kr/@dohyunkim/121)
 
+------------
+
 # # 창업준비
 * [[유튜브] 스타트업위키](https://www.youtube.com/channel/UCfpfrNK3iKi93gYeTl5Z4FA)
 
@@ -53,15 +64,26 @@
 * [[김정래 세무사의 5분특강] 스타트업 창업자 - 오리엔테이션](https://www.youtube.com/watch?v=qBEcnLJUhlA)
 * [스타트업랩](https://www.youtube.com/results?search_query=%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EB%9E%A9)
 * [개인사업자 법인전환 총정리, 이것만 읽으면 충분합니다.](https://blog.help-me.kr/2018/01/15208/)
+* [자비스 - 노무 회계 세무 근로계약서 관련 슬라이드쉐어](https://www.slideshare.net/jobisnv?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview )
+
+## 특허
+* [KIPRIS 특허정보 검색서비스](http://me2.do/5ptuD5Tf)
+
+------------
 
 # # 커뮤니티
 * [K-스타트업](https://www.k-startup.go.kr/main.do)
 * [캠퍼스 서울](https://www.campus.co/seoul/ko/)
 * [[Facebook Page]스타트업, 식사 하셨습니까?](https://www.facebook.com/groups/795777620529967/902416993199362/)
 * [Get connected | 대표적인 여성 창업가 커뮤니티 소개 |](https://www.youtube.com/watch?v=rAJej4l8jiU)
+* [비긴메이트 - 스타트업 팀빌딩 플랫폼](https://www.facebook.com/beginmate/)
+
+--------------
 
 # # 그룹웨어
 * [수기](http://naver.me/Fh2LTwgM)
+
+-----------
 
 # # ETC
 * [참여형 스타트업 용어사전(beta)](http://startup-wiki.kr/)
