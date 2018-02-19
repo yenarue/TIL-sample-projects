@@ -34,6 +34,12 @@
 
 ## 방법론
 * [애자일과 린, 그리고 워터폴](https://brunch.co.kr/@insuk/17)
+* [[번역] 잘 가요 스크럼, 반가워요 칸반](https://medium.com/@pitzcarraldo/%EB%B2%88%EC%97%AD-%EC%9E%98-%EA%B0%80%EC%9A%94-%EC%8A%A4%ED%81%AC%EB%9F%BC-%EB%B0%98%EA%B0%80%EC%9B%8C%EC%9A%94-%EC%B9%B8%EB%B0%98-e27d1db15699)
+* [왜 “애자일”, 특히 스크럼이 끔찍한가.](http://wonnyz.tumblr.com/post/136256619316/%EC%99%9C-%EC%95%A0%EC%9E%90%EC%9D%BC-%ED%8A%B9%ED%9E%88-%EC%8A%A4%ED%81%AC%EB%9F%BC%EC%9D%B4-%EB%81%94%EC%B0%8D%ED%95%9C%EA%B0%80)
+
+
+## 타기업 사례
+* [페이스북은 어떻게 개발하고 배포할까? ](http://egloos.zum.com/swprocess/v/3009704)
 
 ## 포스팅
 * [왜 정작 사무실에서 일이 제일 안 될까?](https://brunch.co.kr/@dohyunkim/121)
