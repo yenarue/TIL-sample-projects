@@ -1,8 +1,6 @@
 MongoDB - Overview
 ====
-
-'[만들면서 파악하는 NoSQL 7 데이터베이스 (원제 : Seven Databases In Seven Weeks)](http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=24714891)'를 읽고 정리한 글입니다.
-
+MongoDB 에 대한 개념적인 내용정리
 
 # 개요
 **처리 성능**과 **쉽고 가벼운 데이터 액세스**를 가장 중요한 목표로 갖는 확장성 있는 데이터베이스이다. 대량의 데이터를 가공하거나 분산처리 등의 무거운 연산을 수행해야 할 때 유용하다.
@@ -192,3 +190,6 @@ mongod 서버의 클론. mongod의 모든 command를 사용할 수 있으면서�
 # 마무리
 ## 장점
 ## 단점
+
+# 참고자료
+* [[Book] 만들면서 파악하는 NoSQL 7 데이터베이스 (원제 : Seven Databases In Seven Weeks)](http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=24714891)
