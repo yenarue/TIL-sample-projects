@@ -1,0 +1,22 @@
+vm1 ansible_ssh_host=192.168.34.21 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+
+[web]
+vm1
+web01.example.com
+web02.example.com
+web03.example.com
+
+[db]
+vm1
+db_a.example.com
+db_b.example.com
+
+[development]
+vm1
+
+[production]
+web01.example.com
+web02.example.com
+web03.example.com
+db_a.example.com
+db_b.example.com
