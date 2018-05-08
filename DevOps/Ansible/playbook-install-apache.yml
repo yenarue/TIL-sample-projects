@@ -1,0 +1,9 @@
+---
+- hosts: vm1
+  become: true
+  tasks:
+    - name: Apache 설치
+      yum: name=httpd ststa=latest
+
+    - name: Apache 실행
+      service: name=httpd state=started enabled=yes
