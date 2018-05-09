@@ -10,7 +10,7 @@
 
   - name: 파일을 복사한다
     copy: 
-      src: 'copyTestFile' # 로컬경로여야 함
+      src: 'files/copyTestFile' # 로컬경로여야 함
       dest: '{{ file_destination }}'
 
   - name: 복사된 파일을 확인한다
