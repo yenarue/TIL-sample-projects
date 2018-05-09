@@ -1,0 +1,18 @@
+---
+- hosts: vm1
+  tasks:
+    - shell: /usr/bin/some_command
+      register: result
+      ignore_errors: True
+
+    - debug: msg="실패"
+      when: result is failed
+    
+    - debug: msg="상태 변경됨"
+      when: result is changed
+
+    - debug: msg="성공"
+      when: result is success
+
+    - debug: msg="스킵"
+      when: result is skipped
