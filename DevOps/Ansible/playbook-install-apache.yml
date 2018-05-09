@@ -3,7 +3,7 @@
   become: true
   tasks:
     - name: Apache 설치
-      yum: name=httpd ststa=latest
+      yum: name=httpd state=latest
 
     - name: Apache 실행
       service: name=httpd state=started enabled=yes

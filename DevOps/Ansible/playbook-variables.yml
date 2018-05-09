@@ -1,0 +1,9 @@
+---
+- hosts: vm1
+  vars:
+    key1: value1
+    key2: value2
+
+- hosts: web
+  vars_files:
+    - extra_vars.yml

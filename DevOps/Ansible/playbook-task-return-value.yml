@@ -1,0 +1,12 @@
+---
+- hosts: vm1
+  become: true
+  tasks:
+    - name: 오늘 날짜를 얻어보자
+      shell: date +%Y%m%d
+      register: date
+
+    - debug: var=date
+
+    - name: 오늘 날짜 디렉터리를 생성
+      file: path=/tmp/{{ date.stdout }} state=directory owner=vagrant group=vagrant mode=0755
