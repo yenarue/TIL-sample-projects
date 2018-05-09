@@ -1,0 +1,20 @@
+---
+- hosts: vm1
+  tasks:
+    - name: 로컬 파일들을 전송한다
+      copy: src=files/{{ item.src }} dest={{ item.dest }}
+      with_items:
+        - { src: file1, dest: ./copyfile1 }
+        - { src: file2, dest: ./copyfile2 }
+
+    - name: 복사된 파일을 확인한다
+      find:
+        path: './'
+        patterns: "{{ item }}"
+      with_items:
+        - copyfile1
+        - copyfile2
+      register: find_result
+
+    - debug: var=find_result
+      
