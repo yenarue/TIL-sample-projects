@@ -1,0 +1,17 @@
+---
+- hosts: vm1
+  tasks:
+    - name: httpd 설치 (yum)
+      yum: name=httpd state=latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Apache2 설치 (apt-get)
+      apt: name=apache2-mpm-prefork state=latest
+      when: ansible_os_family == "Debian"
+
+    - name: httpd 설치 (CentOS 6 or 7)
+      yum: name=httpd state=present
+      when:
+        ansible_distribution == "CentOS"
+        and (ansible_distribution_major_version == "6"
+             or ansible_distribution_major_version == "7")
