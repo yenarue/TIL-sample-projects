@@ -82,6 +82,35 @@
       with_items:
         - php
         - php-cli
+        - php-process
+        - php-pdo
+        - php-pgsql
+        - php-mbstring
+        - php-mcrypt
+        - php-devel
+        - php-common
+        - php-pear
+        - php-opcache
+        - php-json
+        - php-pecl-memcached
+        - php-pecl-zip
+      notify:
+        - Apache를 재실행
+      tags:
+        - php
+
+    - name: 커스텀 php.ini를 전송
+      copy: src=files/php/zzmyphp.ini dest=/etc/php.d/zzmyphp.ini
+      notify:
+        - Apache를 재실행
+      tags:
+        - php
+
+    - name: composer.phar 설치
+      shell: curl -sS https://getcomposer.org/installer
+            | php -- --install-dir=/usr/bin --filename=composer creates=/usr/bin/composer
+      tags:
+        - php
     
   handlers:
     - name: Apache를 재실행
