@@ -1,0 +1,98 @@
+---
+- hosts: web
+  become: yes
+  tasks:
+##### Apache 셋업
+    - name: Apache를 설치
+      yum: name=httpd state=present
+      tags:
+        - apache
+
+    - name: httpd.conf 템플릿을 전송
+      template:
+        src=files/apache/httpd.conf.j2
+        dest=/etc/httpd/conf/httpd.conf
+        owner=root
+        group=root
+        mode=0644
+      tags:
+        - apache
+      notify:
+        - Apache를 재실행
+
+    - name: vhosts.conf 템플릿을 전송
+      template:
+        src=files/apache/vhosts.conf.j2
+        dest=/etc/httpd/conf.d/vhosts.conf
+        owner=root
+        group=root
+        mode=0644
+      tags:
+        - apache 
+      notify:
+        - Apache를 재실행
+
+    - name: Apache를 실행, 자동 실행을 활성화
+      service: name=httpd state=started enabled=yes
+      tags:
+        - apache
+
+##### PHP 셋업
+    - name: EPEL 리포지토리를 설치
+      yum: name=epel-release state=present
+      tags:
+        - php
+
+    - name: Remi 리포지토리가 설치됐는지 확인하기
+      shell: rpm -q remi-release
+      register: remi_release_status
+#      failed_when: False
+      changed_when: False
+      ignore_errors: True
+      tags:
+        - php
+
+    - name: Remi 리포지토리를 설치
+      yum: name="http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+      when: remi_release_status is failed
+      tags:
+        - php
+
+    - name: PHP 7.0을 설치
+      yum: name={{ item }} state=present enablerepo=remi-php70
+      with_items:
+        - php
+        - php-cli
+        - php-process
+        - php-pdo
+        - php-pgsql
+        - php-mbstring
+        - php-mcrypt
+        - php-devel
+        - php-common
+        - php-pear
+        - php-opcache
+        - php-json
+        - php-pecl-memcached
+        - php-pecl-zip
+      notify:
+        - Apache를 재실행
+      tags:
+        - php
+
+    - name: 커스텀 php.ini를 전송
+      copy: src=files/php/zzmyphp.ini dest=/etc/php.d/zzmyphp.ini
+      notify:
+        - Apache를 재실행
+      tags:
+        - php
+
+    - name: composer.phar 설치
+      shell: curl -sS https://getcomposer.org/installer
+            | php -- --install-dir=/usr/bin --filename=composer creates=/usr/bin/composer
+      tags:
+        - php
+
+  handlers:
+    - name: Apache를 재실행
+      service: name=httpd state=restarted
