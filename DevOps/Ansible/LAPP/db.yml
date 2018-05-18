@@ -1,0 +1,5 @@
+---
+- hosts: vagrant_vm1
+  become: yes
+  tasks:
+    
