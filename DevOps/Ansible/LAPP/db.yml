@@ -2,4 +2,67 @@
 - hosts: vagrant_vm1
   become: yes
   tasks:
+    ##### PostgreSQL 셋업
+    - name: PostgreSQL 레포지토리가 설치되었는지 확인
+      shell: rpm -q pgdg-centos94
+      register: pgdg_status
+      ignore_errors: True
+      changed_when: False
+      tags:
+        - postgresql
+
+    - name: PostgreSQL 레포지토리를 설치
+      yum: name="http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-2.noarch.rpm"
+      when: pgdg_status is failed
+      tags:
+        - postgresql
     
+    - name: PostgreSQL 설치
+      yum: name={{ item }} state=present
+      with_items:
+        - postgresql94-server
+        - postgresql94
+        - python-psycopg2
+      tags:
+        - postgresql
+
+    - name: PostgreSQL 데이터베이스를 초기화
+      command: /usr/pgsql-9.4/bin/postgresql94-setup initdb
+      args:
+        creates: /var/lib/pgsql/9.4/data/postgresql.conf
+      tags:
+        - postgresql
+
+    - name: pg_hba.conf 템플릿을 전송
+      template: src=files/postgresql/pg_hba.conf.j2 dest=/var/lib/pgsql/9.4/data/pg_hba.conf
+      notify:
+        - PostgreSQL을 재실행
+      tags:
+        - postgresql
+
+    - name: PostgreSQL을 실행, 자동 실행을 활성화
+      service: name=postgresql-9.4 state=started enabled=yes
+      tags:
+        - postgresql
+
+    - name: PostgreSQL 사용자 생성
+      postgresql_user:
+        name={{ db_username }}
+        password=123
+        role_attr_flags=CREATEDB,NOSUPERUSER
+      become_user: postgres
+      tags:
+        - postgresql
+
+    - name: 애플리케이션 데이터베이스를 생성
+      postgresql_db: name={{ item }} owner={{ db_username }} encoding=UTF-8 template=template0
+      become_user: postgres
+      with_items:
+        - "{{ db_database }}"
+        - "{{ db_test_database }}"
+      tags:
+        - postgresql
+
+  handlers:
+    - name: PostgreSQL을 재실행
+      service: name=postgresql-9.4 state=restarted    

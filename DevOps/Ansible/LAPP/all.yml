@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    base_locale: LANG=ja_JP.UTF-8
+    base_timezone: Asia/Seoul
+  tasks:
+    - name: 로케일 설정
+      command: localectl set-locale {{ base_locale }}
+
+    - name: 타임존 설정
+      command: timedatectl set-timezone {{ base_timezone }}
+
+    - name: 기본 패키지를 설치
+      yum: name={{ item }} state=present
+      with_items:
+        - vim
+        - git
+        - ntp
+
+    - name: ntpd를 실행, 자동 실행 활성화
+      service: name=ntpd state=started enabled=yes
+
+- include: web.yml
+- include: db.yml
+- include: deploy.yml
