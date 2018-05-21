@@ -47,5 +47,4 @@ captures/
 vagrant_ssh_config
 
 # For chef
-.delivery
 /cookbooks/
