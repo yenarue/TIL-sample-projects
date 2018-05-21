@@ -40,3 +40,12 @@ captures/
 
 # Keystore files
 *.jks
+
+### ETC
+# For vagrant
+.vagrant
+vagrant_ssh_config
+
+# For chef
+.delivery
+/cookbooks/
