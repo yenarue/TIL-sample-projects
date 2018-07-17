@@ -19,11 +19,16 @@ FormView.showResetBtn = function (show = true) {
 }
 
 FormView.bindEvents = function () {
+    this.on('submit', e => e.preventDefault())      // 브라우저의 Default Submit Action을 막기위함
     this.inputEl.addEventListener('keyup', e => this.onKeyUp(e))
 }
 
 FormView.onKeyUp = function (e) {
+    const enterKeyCode = 13
     this.showResetBtn(this.inputEl.value.length)
+
+    if (e.keyCode !== enterKeyCode) return
+    this.emit('@submit', {input: this.inputEl.value})
 }
 
 export default FormView
