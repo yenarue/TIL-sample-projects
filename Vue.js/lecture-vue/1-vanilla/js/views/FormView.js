@@ -10,10 +10,20 @@ FormView.setup = function (el) {
     this.inputEl = el.querySelector('[type=text]')
     this.resetEl = el.querySelector('[type=reset]')
     this.showResetBtn(false)
+    this.bindEvents()
+    return this
 }
 
 FormView.showResetBtn = function (show = true) {
     this.resetEl.style.display = show ? 'block' : 'none'
+}
+
+FormView.bindEvents = function () {
+    this.inputEl.addEventListener('keyup', e => this.onKeyUp(e))
+}
+
+FormView.onKeyUp = function (e) {
+    this.showResetBtn(this.inputEl.value.length)
 }
 
 export default FormView
