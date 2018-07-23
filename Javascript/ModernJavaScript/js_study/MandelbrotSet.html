@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>망델브로 집합</title>
+  <script>
+    window.onload = function() {
+        const canvas = document.getElementById("mycanvas");
+        const context = canvas.getContext("2d");
+        const width = canvas.width;
+        const height = canvas.height;
+        let centerX = -0.6, centerY = 0;
+
+        draw();
+
+        document.getElementById("button").onclick = draw;
+        document.getElementById("mycanvas").onclick = function(event) {
+            const ix = event.offsetX;
+            const iy = event.offsetY;
+            const magnification = parseFloat(document.getElementById("magnification").value);
+            centerX += (2 * ix / width - 1) / magnification;
+            centerY += (2 * iy - height) / magnification / width;
+            draw();
+        };
+
+        function draw() {
+            const magnification = document.getElementById("magnification").value; // 확대 비율
+            const maxit = document.getElementById("maxit").value;   // 최대 반복 횟수
+            displayCenter(centerX, centerY);
+            mandelbrot(context, centerY, centerY, magnification, maxit);
+        }
+
+        function displayCenter(x, y) {
+            document.getElementById("centerX").innerHTML = x.toFixed(3);
+            document.getElementById("centerY").innerHTML = y.toFixed(3);
+        }
+
+        function mandelbrot(context, centerX, centerY, magnification, maxit) {
+            const width = context.canvas.width;
+            const height = context.canvas.height;
+            const minX = centerX - 1 / magnification;
+            const maxX = centerX + 1 / magnification;
+            const minY = centerY - (maxX - minX) * height / width / 2;
+            const maxY = centerY + (maxX - minX) * height / width / 2;
+            const dx = (maxX - minX) / width;
+            const dy = (maxY - minY) / height;
+            const color = [];
+
+            color[0] = "black";
+
+            let L = 255;
+            const dL = 225 / maxit;
+
+            for (let i = maxit; i > 0; i--) {
+                color[i] = "rgb(255," + Math.floor(L) + ", 255)";
+                L -= dL;
+            }
+
+            for (let i = 0; i < width; i++) {
+                const x = minX + i * dx;
+                for (let j = 0; j < height; j++) {
+                    let count;
+                    const y = minY + j * dy;
+                    let a = x, b = y;
+                    let a2 = a * a, b2 = b * b;
+
+                    for (count = maxit; a2 + b2 <= 4 && count; count--) {
+                        b = 2 * a* b + y;
+                        a = a2 - b2 + x;
+                        a2 = a * a;
+                        b2 = b * b;
+                    }
+
+                    context.fillStyle = color[count];
+                    context.fillRect(i, j, 1, 1);
+                }
+            }
+        }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="mycanvas" width="800" height="640"></canvas>
+  <div>중심좌표(<span id="centerX"></span>, <span id="centerY"></span>)</div>
+  <div>
+    <label>확대 배율 : <input id="magnification" type="number" value="0.65"></label>
+    <label>최대 반복 횟수 : <input id="maxit" type="number" value="60"></label>
+    <input id="button" type="button" value="그리기">
+  </div>
+</body>
+</html>
