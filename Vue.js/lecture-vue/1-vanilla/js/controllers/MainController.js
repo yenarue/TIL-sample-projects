@@ -12,7 +12,8 @@ export default {
             .on('@submit', e => this.onSubmit(e.detail.input))
             .on('@reset', e => this.onResetForm());
 
-        TabView.setup(document.querySelector('#tabs'));
+        TabView.setup(document.querySelector('#tabs'))
+            .on('@change', e => this.onChangeTab(e.detail.tabName));
 
         ResultView.setup(document.querySelector('#search-result'));
 
@@ -46,5 +47,9 @@ export default {
 
     onSearchResult(data) {
         ResultView.render(data);
+    },
+
+    onChangeTab(tabName) {
+
     },
 }
