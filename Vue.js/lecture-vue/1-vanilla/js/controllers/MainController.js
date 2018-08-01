@@ -46,6 +46,7 @@ export default {
     },
 
     onSearchResult(data) {
+        ResultView.show();
         ResultView.render(data);
     },
 
