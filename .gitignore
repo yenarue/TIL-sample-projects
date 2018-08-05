@@ -43,6 +43,7 @@ captures/
 
 # Web
 **/node_modules/**
+package-lock.json
 
 ### ETC
 # For vagrant
