@@ -40,8 +40,9 @@ window.helper = (function(win, doc){
 })(window, document);
 
 
-$(document).ready(function(){
-    var $list = $('#timers');
+$(document).ready(function() {
+    const $list = $('#timers');
+    const $timers = [];
 
     function Timer(_elapsed, _runningSince) {
         var _default = {
@@ -56,14 +57,14 @@ $(document).ready(function(){
         this.elapsed = _elapsed || _default.elapsed;
         this.runningSince = _runningSince || _default.runningSince;
 
-        var $li =     $('<li class="row"  id="' + this.id + '">');
-        var $wrap =   $('  <div class="col-4 offset-4 card p-3">');
-        var $title =  $('    <h3 class="card-title text-center">Timer' + this.id + '</h3>');
-        var $time =   $('    <p class="time card-text text-center">' + helper.renderElapsedString(this.elapsed, this.runningSince) + '</p>');
-        var $start =   $('    <button class="start btn btn-primary">Start</button>');
-        var $stop =    $('    <button class="stop btn btn-danger mt-1">Stop</button>');
+        var $li =       $('<li class="row"  id="' + this.id + '">');
+        var $wrap =     $('  <div class="col-4 offset-4 card p-3">');
+        var $title =    $('    <h3 class="card-title text-center">Timer' + this.id + '</h3>');
+        var $time =     $('    <p class="time card-text text-center">' + helper.renderElapsedString(this.elapsed, this.runningSince) + '</p>');
+        var $start =    $('    <button class="start btn btn-primary">Start</button>');
+        var $stop =     $('    <button class="stop btn btn-danger mt-1">Stop</button>');
         var $reset =    $('    <button class="reset btn btn-warning mt-1">Reset</button>');
-        var $remove =    $('    <button class="remove btn btn-info mt-1">Delete</button>');
+        var $remove =   $('    <button id="removeTimer" class="remove btn btn-info mt-1">Delete</button>');
 
         // time의 텍스트를 수정하기 위한 변수 저장
         this.time = $time;
@@ -83,7 +84,7 @@ $(document).ready(function(){
         $list.append($li);
     }
 
-    Timer.prototype.startTimer = function () {
+    Timer.prototype.startTimer = function() {
         console.log(this);
         if (this.isRunning) return false;
         this.isRunning = true;
@@ -96,9 +97,9 @@ $(document).ready(function(){
         timer.intervalId = setInterval(function(){
             timer.time.text(helper.renderElapsedString(timer.elapsed, timer.runningSince));
         }, 43)
-    }
+    };
 
-    Timer.prototype.stopTimer = function () {
+    Timer.prototype.stopTimer = function() {
         if (!this.isRunning) return false;
         this.isRunning = false;
 
@@ -107,7 +108,7 @@ $(document).ready(function(){
         let lastElapsed = now - this.runningSince;
         this.elapsed += lastElapsed;
         this.runningSince = null;
-    }
+    };
 
     Timer.prototype.resetTimer = function() {
         this.elapsed = 0;
@@ -118,14 +119,29 @@ $(document).ready(function(){
             this.runningSince = null;
             this.time.text(helper.renderElapsedString(0, 0));
         }
-    }
+    };
 
     Timer.prototype.removeTimer = function() {
         $('#' + this.id).remove();
-    }
+        removeTimerFromArray(this.id);
+    };
 
-    $('#addTimer').on('click', function(e){
-        // 여기 삭제하는 것도 넣기
+    $('#addTimer').on('click', function(e) {
         const timer = new Timer();
+        $timers.push(timer);
+        console.log("created timer : " + timer.id);
+        console.log("current timer list length : " + $timers.length);
     });
+
+    const removeTimerFromArray = (id) => {
+        for (let i = 0; i < $timers.length; i++) {
+            if ($timers[i].id === id) {
+                $timers.splice(i, 1);
+                console.log("deleted timer! : " + id);
+                console.log("current timer list length : " + $timers.length);
+                return;
+            }
+        }
+        console.error("There isn't the timer! : " + id);
+    };
 });
