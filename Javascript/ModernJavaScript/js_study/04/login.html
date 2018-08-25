@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+</head>
+<style>
+    body {
+        position: relative;
+        background: #eee;
+        height: 100vh;
+    }
+    form {
+        position: absolute;
+        top:  50%;
+        left:  50%;
+        width: 500px;
+        padding: 20px;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: #999 2px 3px 8px;
+    }
+    h1 {
+        text-align: center;
+    }
+    input, button {
+        display: block;
+        width: 100%;
+        height: 40px;
+        margin: 10px 0 0;
+        padding: 0;
+    }
+</style>
+<body>
+<form name="loginForm" method="post" action="/user/login">
+    <h1>LOGIN</h1>
+    <input required="true" type="text" required name="username">
+    <input placeholder="문자와 숫자 최소 8개" type="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" name="password">
+    <!-- <input type="submit" value="로그인"> -->
+    <button submit>로그인</button>
+</form>
+<script>
+    const pw = document.forms.loginForm.password;
+    pw.addEventListener('invalid', function() {
+
+    });
+</script>
+</body>
+</html>
