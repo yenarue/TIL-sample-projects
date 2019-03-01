@@ -1,6 +1,6 @@
 import numpy as np
-import matplotlib.pylab as plt
-import active_function
+from common import active_function
+
 
 def init_network():
     network = {}
