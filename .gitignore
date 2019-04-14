@@ -52,3 +52,6 @@ vagrant_ssh_config
 
 # For chef
 /cookbooks/
+
+# For Mac
+.DS_Store
