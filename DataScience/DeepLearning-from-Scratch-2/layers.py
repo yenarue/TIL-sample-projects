@@ -87,3 +87,29 @@ class MatMul:
         dW = np.matmul(self.x.T, dout)
         self.grads[0][...] = dW     # 깊은복사
         return dx
+
+
+class Embedding:
+    def __init__(self, W):
+        self.params = [W]
+        self.grads = [np.zeros_like(W)]
+        self.idx = None
+
+    def forward(self, idx):
+        W, = self.params
+        self.idx = idx
+        out = W[idx]
+        return out
+
+    def backward(self, dout):
+        dW, = self.grads
+        dW[...] = 0          # dW의 shape는 유지하고 내용물을 0으로 채워넣는다
+        # dW[self.idx] = dout  # dout = 앞층에서 전해져온 기울기를
+
+        for i, word_id in enumerate(self.idx):
+            dW[word_id] += dout[i]
+
+        # 위와 동일한 액션
+        # np.add.at(dW, self.idx, dout) # dout을 dW의 self.idx 번째 행에 더한다
+
+        return None
