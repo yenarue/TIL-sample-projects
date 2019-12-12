@@ -1,5 +1,5 @@
 import numpy as np
-from layers import MatMul, SoftmaxWithLoss
+from common.layers import MatMul, SoftmaxWithLoss
 
 
 class SimpleSkipGram:

@@ -1,5 +1,5 @@
 from common.util import preprocess, create_contexts_target, convert_one_hot
-from optimizer import Adam
+from common.optimizer import Adam
 from common.trainer import Trainer
 from ch03.simple_cbow import SimpleCBOW
 

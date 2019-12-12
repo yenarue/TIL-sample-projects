@@ -1,5 +1,5 @@
 import numpy as np
-from layers import MatMul
+from common.layers import MatMul
 
 # 샘플 맥락 데이터 (입력)
 c0 = np.array([[1, 0, 0, 0, 0, 0, 0]])

@@ -3,7 +3,7 @@ from common import config
 
 import pickle
 from common.trainer import Trainer
-from optimizer import Adam
+from common.optimizer import Adam
 
 from ch04.cbow import CBOW
 from common.util import create_contexts_target, to_cpu, to_gpu

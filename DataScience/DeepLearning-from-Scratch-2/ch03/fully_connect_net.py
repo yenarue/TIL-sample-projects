@@ -6,7 +6,7 @@ h = np.matmul(c, W)                     # 중간 노드
 print(h)
 
 # 우리가 직접 구현했던 matmul을 이용할수도 있다ㅎㅎ
-from layers import MatMul
+from common.layers import MatMul
 layer = MatMul(W)
 h = layer.forward(c)
 print(h)

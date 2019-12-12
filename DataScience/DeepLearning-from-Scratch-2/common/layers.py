@@ -1,5 +1,4 @@
-import numpy as np
-from functions import *
+from common.functions import *
 
 # 구현규칙
 # 1. 모든 계층은 forward()와 backward() 메서드를 가진다

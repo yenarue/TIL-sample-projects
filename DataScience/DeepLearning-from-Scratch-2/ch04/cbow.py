@@ -1,6 +1,5 @@
-import sys
 import numpy as np
-from layers import Embedding
+from common.layers import Embedding
 from ch04.negative_sampling_layer import NegativeSamplingLoss
 
 class CBOW:

@@ -1,5 +1,5 @@
 import numpy as np
-from layers import Affine, Sigmoid, SoftmaxWithLoss
+from common.layers import Affine, Sigmoid, SoftmaxWithLoss
 
 class TwoLayerNet:
     def __init__(self, input_size, hidden_size, output_size):

@@ -1,7 +1,6 @@
-import numpy as np
 import collections
 from common.np import *
-from layers import Embedding, SigmoidWithLoss
+from common.layers import Embedding, SigmoidWithLoss
 
 class EmbeddingDot:
     def __init__(self, W):
