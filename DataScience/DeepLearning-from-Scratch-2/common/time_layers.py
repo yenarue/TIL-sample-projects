@@ -1,4 +1,5 @@
 import numpy as np
+from common.layers import *
 
 class RNN:
     def __init__(self, Wx, Wh, b):
