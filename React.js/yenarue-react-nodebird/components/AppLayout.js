@@ -16,7 +16,7 @@ const SearchInput = styled(Input.Search)`
 const AppLayout = ({ children }) => {
   // Without Redux
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const { isLoggedIn } = useSelector((state) => state.user);
 
   // Virtual DOM
   return (
