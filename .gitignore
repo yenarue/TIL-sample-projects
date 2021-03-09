@@ -55,3 +55,6 @@ vagrant_ssh_config
 
 # For Mac
 .DS_Store
+
+# For React
+.next/
